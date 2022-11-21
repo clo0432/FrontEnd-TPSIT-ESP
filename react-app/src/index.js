@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-class Test extends ReactDOM {
+class Test extends React.Component {
   render() {
     return (
       <p>Test</p>
