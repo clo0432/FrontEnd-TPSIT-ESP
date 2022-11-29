@@ -4,13 +4,19 @@
 
 ## Struttura
 
-nav bar:
-contiene pulsante options
+__Nav bar__:
+contiene pulsante options;
 
-main content:
-Welcome page + breve descrizione
+__Main content__:
+Welcome page + breve descrizione;
+* Selettore sotto descrizione tutto in una riga:
+  * select scuola
+  * select piano / reparto
+  * bottone vai/visualizza
 
-selettore sotto descrizione tutto in una riga:
-1. select scuola
-2. select piano / reparto
-3. bottone vai/visualizza
+### Pacchetti react da controllare:
+* Material UI (Temi, icone..)
+* React PRO side bar
+* Formik
+* Yup
+* Nivo (Grafici)
