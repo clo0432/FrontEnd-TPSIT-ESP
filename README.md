@@ -20,3 +20,8 @@ Welcome page + breve descrizione;
 * Formik
 * Yup
 * Nivo (Grafici)
+
+### Spunti/Idee
+* https://www.youtube.com/watch?v=DUmuemqxIdw
+* https://www.youtube.com/watch?v=hYv6BM2fWd8
+* https://www.youtube.com/watch?v=wYpCWwD1oz0&ab_channel=EdRoh
