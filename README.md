@@ -14,7 +14,7 @@ Welcome page + breve descrizione;
   * select piano / reparto
   * bottone vai/visualizza
 
-### Pacchetti react da controllare ([source] (https://www.youtube.com/watch?v=wYpCWwD1oz0&ab_channel=EdRoh)):
+### Pacchetti react da controllare:
 * Material UI (Temi, icone..)
 * React PRO side bar
 * Formik
