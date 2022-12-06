@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import App from './App';
+
 import './index.css';
 
-class Test extends React.Component {
-  render() {
-    return (
-      <p>Test</p>
-    );
-  }
-}
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Test/>);
+root.render(
+  <React.StrictMode>
+    <App/>
+  </React.StrictMode>
+);
