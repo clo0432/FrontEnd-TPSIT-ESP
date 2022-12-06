@@ -14,14 +14,14 @@ Welcome page + breve descrizione;
   * select piano / reparto
   * bottone vai/visualizza
 
-### Pacchetti react da controllare:
+## Pacchetti react da controllare:
 * Material UI (Temi, icone..)
 * React PRO side bar
 * Formik
 * Yup
 * Nivo (Grafici)
 
-### Spunti/Idee
+## Spunti/Idee
 * [How to Create a Simple NavBar with Glass Effect | Glassmorphic NavBar](https://www.youtube.com/watch?v=DUmuemqxIdw)
 * [React Project Tutorial: Build a Responsive Portfolio Website w/ Advanced Animations](https://www.youtube.com/watch?v=hYv6BM2fWd8)
 * [Build a COMPLETE React Admin Dashboard App | React, Material UI, Data Grid, Light & Dark Mode](https://www.youtube.com/watch?v=wYpCWwD1oz0&ab_channel=EdRoh)
