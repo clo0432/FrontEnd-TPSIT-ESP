@@ -1,5 +1,4 @@
 import { Box, IconButton, useTheme } from "@mui/material";
-import { useContext } from "react";
 import HomeIcon from '@mui/icons-material/Home';
 
 const Topbar = () => {
