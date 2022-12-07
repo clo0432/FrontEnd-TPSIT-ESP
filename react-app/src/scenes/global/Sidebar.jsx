@@ -3,7 +3,6 @@ import { Outlet, Link } from "react-router-dom";
 const Sidebar = () => {
     return (
         <>
-            <div>Sidebar</div>
             <ul>
                 <li>
                     <Link to="graphs">Grafici</Link>
