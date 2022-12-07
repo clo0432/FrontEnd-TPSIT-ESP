@@ -6,8 +6,9 @@ import { appTheme } from './theme.js';
 
 import Topbar from "./scenes/global/Topbar"
 import Sidebar from "./scenes/global/Sidebar"
-import MainPage from "./scenes/pages/mainPage";
-import GraphsPage from "./scenes/pages/graphsPage";
+import MainPage from "./scenes/mainPage";
+import GraphsPage from "./scenes/graphsPage";
+import MapsPage from "./scenes/mapsPage/";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               }>
                 <Route index element={<MainPage />} />
                 <Route path="graphs" element={<GraphsPage />} />
+                <Route path="maps" element={<MapsPage />} />
               </Route>
             </Routes>
           </BrowserRouter>
