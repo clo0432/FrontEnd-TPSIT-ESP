@@ -1,9 +1,7 @@
+import { Button } from "@mui/material";
 const MainPage = () => {
     return (
         <div>
-            <nav>
-                <button>Options</button>
-            </nav>
             <main>
                 <h1>Welcome</h1>
                 <p>Breve descrizione</p>

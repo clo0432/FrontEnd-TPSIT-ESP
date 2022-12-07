@@ -110,4 +110,4 @@ export const themeSettings = () => {
     };
 }
 
-export const theme = () => createTheme(themeSettings());
+export const appTheme = createTheme(themeSettings());
