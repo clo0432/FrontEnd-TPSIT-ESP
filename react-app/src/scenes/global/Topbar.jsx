@@ -1,18 +1,12 @@
-import { Box, IconButton, useTheme } from "@mui/material";
-import HomeIcon from '@mui/icons-material/Home';
+import React, { useEffect, useState, useRef } from "react";
 
 const Topbar = () => {
-    const theme = useTheme();
-    const colors = theme.palette;
+
     return (
-        <Box display='flex' justifyContent='space-between'p={2} backgroundColor={colors.primary[400]}>
-            <IconButton>
-                <HomeIcon/> &nbsp;
-                Demo
-            </IconButton>
-            <IconButton> Options </IconButton>
-        </Box>
-    );
+        <div className="fixed top-0 left-0 h-16 w-full m-0 flex-row
+                        bg-[#21184D] shadow-lg ">
+        </div>
+    )   
 };
 
 export default Topbar;

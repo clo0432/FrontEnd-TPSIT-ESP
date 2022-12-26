@@ -1,55 +1,23 @@
-import { useState } from 'react';
-
 const MainPage = () => {
-    const [inputs, setInputs] = useState({});
-
-    const handleChange = (e) => {
-        const name = e.target.name;
-        const value = e.target.value;
-
-        setInputs(values => ({...values, [name]: value}));
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if(inputs["scuola"] && inputs["piano"])
-            console.log(inputs);
-        else
-            console.log("dirty form");
-    };
-
     return (
-        <div>
-            <main>
-                <h1>Welcome</h1>
-                <p>Breve descrizione</p>
-
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="scuola">Scuola:</label>
-                    <select
-                        id="scuola"
-                        name="scuola"
-                        onChange={handleChange}
-                    >
-                        <option value={""}></option>
-                        <option value={"Albergehtti"}>Alberghetti</option>
-                    </select>
-
-                    <label htmlFor="piano">Piano:</label>
-                    <select
-                        id="piano"
-                        name="piano"
-                        onChange={handleChange}
-                    >
-                        <option value={""}></option>
-                        <option value={1}>1</option>
-                    </select>
-
-                    <button>Vai</button>
-                </form>
-            </main>
+        <div id="mainpageContainer" className ="container mx-auto px-5 py-20">
+            <title className="title-text">
+                Benvenuto all'interno della demo!
+            </title> 
+            <p className="py-10">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sodales diam vitae nibh facilisis gravida eget nec leo. Suspendisse potenti. Sed malesuada lobortis tempor. Phasellus vestibulum mattis quam nec blandit. Ut non quam eros. Etiam enim dui, egestas ac libero id, tincidunt suscipit neque. Proin ac semper nulla. Aliquam vel nisi turpis. Etiam at vulputate odio. Aliquam erat volutpat. Sed lacinia aliquet massa, sit amet eleifend tellus iaculis sed. Interdum et malesuada fames ac ante ipsum primis in faucibus. In at imperdiet risus. Sed accumsan est ac ex congue, non tempus est consequat.
+                Phasellus ac magna sagittis libero malesuada pulvinar. Proin condimentum convallis urna et ultricies. Donec volutpat sodales urna, in imperdiet nulla iaculis ac. Proin eu aliquet odio, eget rhoncus odio. Pellentesque euismod dignissim posuere. Fusce ac arcu urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed eget nibh vel enim viverra dignissim.
+                Maecenas vestibulum pellentesque auctor. Vestibulum elementum lorem ipsum, eu tempor enim euismod sit amet. Suspendisse feugiat ut lectus at scelerisque. Nullam vulputate ultricies purus, ultrices aliquam massa tincidunt et. Nullam arcu dui, molestie tempus placerat sed, ultricies ut quam. Morbi urna elit, condimentum ut fermentum pharetra, interdum quis elit. Nullam at augue laoreet, elementum nisi sit amet, sagittis mi. Etiam pretium tellus nec erat rhoncus, tempor pulvinar ex porttitor.
+                Vestibulum leo ex, finibus eu tincidunt a, aliquam quis diam. Aliquam posuere hendrerit mi, et feugiat ligula. Integer quis ante leo. Morbi lacinia elementum vulputate. In suscipit fringilla ex, quis tempor neque faucibus eget. Proin eu turpis et urna condimentum porta. Pellentesque molestie tempor vulputate. Sed ultricies nulla ut augue efficitur, in aliquam metus ullamcorper. Vestibulum eu sagittis augue. Suspendisse efficitur ligula sed enim gravida, vitae tincidunt purus lacinia. Praesent lorem augue, imperdiet et feugiat in, mollis et massa. Pellentesque non venenatis turpis, sit amet laoreet nisl. In orci leo, rhoncus ac tincidunt sit amet, suscipit at eros. Nunc tortor enim, hendrerit vitae facilisis id, malesuada in magna. Aliquam auctor rhoncus metus non venenatis. Proin vel nibh consectetur, mollis elit nec, bibendum mi.
+                In mattis ultricies dolor, vitae pharetra lectus. Quisque pulvinar ex sit amet massa vestibulum iaculis. Praesent porta gravida imperdiet. Nulla non purus accumsan, varius dolor sit amet, fermentum purus. Vestibulum faucibus mollis augue in eleifend. Vestibulum neque dolor, mattis et gravida non, varius ac dolor. Sed ut fringilla erat, vitae finibus magna. Curabitur fringilla vulputate justo, sit amet pulvinar odio consectetur varius. Etiam cursus sem sit amet elementum rutrum. Nunc id gravida urna, vel dapibus sapien. Aenean lectus nisi, pretium consectetur euismod nec, porttitor non erat. Ut ullamcorper at justo nec finibus. Proin tincidunt elit a justo pretium, dignissim ornare arcu imperdiet.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sodales diam vitae nibh facilisis gravida eget nec leo. Suspendisse potenti. Sed malesuada lobortis tempor. Phasellus vestibulum mattis quam nec blandit. Ut non quam eros. Etiam enim dui, egestas ac libero id, tincidunt suscipit neque. Proin ac semper nulla. Aliquam vel nisi turpis. Etiam at vulputate odio. Aliquam erat volutpat. Sed lacinia aliquet massa, sit amet eleifend tellus iaculis sed. Interdum et malesuada fames ac ante ipsum primis in faucibus. In at imperdiet risus. Sed accumsan est ac ex congue, non tempus est consequat.
+                Phasellus ac magna sagittis libero malesuada pulvinar. Proin condimentum convallis urna et ultricies. Donec volutpat sodales urna, in imperdiet nulla iaculis ac. Proin eu aliquet odio, eget rhoncus odio. Pellentesque euismod dignissim posuere. Fusce ac arcu urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed eget nibh vel enim viverra dignissim.
+                Maecenas vestibulum pellentesque auctor. Vestibulum elementum lorem ipsum, eu tempor enim euismod sit amet. Suspendisse feugiat ut lectus at scelerisque. Nullam vulputate ultricies purus, ultrices aliquam massa tincidunt et. Nullam arcu dui, molestie tempus placerat sed, ultricies ut quam. Morbi urna elit, condimentum ut fermentum pharetra, interdum quis elit. Nullam at augue laoreet, elementum nisi sit amet, sagittis mi. Etiam pretium tellus nec erat rhoncus, tempor pulvinar ex porttitor.
+                Vestibulum leo ex, finibus eu tincidunt a, aliquam quis diam. Aliquam posuere hendrerit mi, et feugiat ligula. Integer quis ante leo. Morbi lacinia elementum vulputate. In suscipit fringilla ex, quis tempor neque faucibus eget. Proin eu turpis et urna condimentum porta. Pellentesque molestie tempor vulputate. Sed ultricies nulla ut augue efficitur, in aliquam metus ullamcorper. Vestibulum eu sagittis augue. Suspendisse efficitur ligula sed enim gravida, vitae tincidunt purus lacinia. Praesent lorem augue, imperdiet et feugiat in, mollis et massa. Pellentesque non venenatis turpis, sit amet laoreet nisl. In orci leo, rhoncus ac tincidunt sit amet, suscipit at eros. Nunc tortor enim, hendrerit vitae facilisis id, malesuada in magna. Aliquam auctor rhoncus metus non venenatis. Proin vel nibh consectetur, mollis elit nec, bibendum mi.
+                In mattis ultricies dolor, vitae pharetra lectus. Quisque pulvinar ex sit amet massa vestibulum iaculis. Praesent porta gravida imperdiet. Nulla non purus accumsan, varius dolor sit amet, fermentum purus. Vestibulum faucibus mollis augue in eleifend. Vestibulum neque dolor, mattis et gravida non, varius ac dolor. Sed ut fringilla erat, vitae finibus magna. Curabitur fringilla vulputate justo, sit amet pulvinar odio consectetur varius. Etiam cursus sem sit amet elementum rutrum. Nunc id gravida urna, vel dapibus sapien. Aenean lectus nisi, pretium consectetur euismod nec, porttitor non erat. Ut ullamcorper at justo nec finibus. Proin tincidunt elit a justo pretium, dignissim ornare arcu imperdiet.
+            </p>
         </div>
-    );
-};
+    )
+}
 
 export default MainPage;
