@@ -1,31 +1,22 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { Sidebar, SidebarToggleButton, SidebarContext } from './scenes/global/Sidebar';
-import Topbar from './scenes/global/Topbar';
+import Layout from './scenes/global/Layout';
 import MainPage from './scenes/mainPage';
 
-
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  // Funzione per aprire/chiudere la sidebar
-  const toggle = () => setIsOpen(!isOpen);
-
   return (
-    <div className='relative'>
-      {/* Pagina iniziale con titolo, breve descrizione e select */}
-      <MainPage/> 
-      <SidebarContext.Provider value={{isOpen, toggle}} >
-        {/* Topbar con bottone per sidebar, titolo, searchbar con animazione apple */}
-        <Topbar/> 
-        {/* Sidebar con: admin, login... */} 
-        <Sidebar/> 
-        {/* Bottone per aprire e chiudere la sidebar */}
-        <SidebarToggleButton/> 
-      </SidebarContext.Provider>
-
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<MainPage />} />
+          {/* <Route path="blogs" element={<Blogs />} /> */}
+          {/* <Route path="contact" element={<Contact />} /> */}
+          {/* <Route path="*" element={<NoPage />} /> */}
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
-export default App
+export default App;
