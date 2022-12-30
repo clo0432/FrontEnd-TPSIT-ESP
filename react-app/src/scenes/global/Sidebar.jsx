@@ -8,8 +8,9 @@ export const Sidebar = ( {isSidebarOpen} ) => {
             <div className="text-gray-100 text-xl"> 
                 {/*Titolo della sidebar*/}
                 {/* <h1 className="px-4 mt-4 flex font-bold text-gray-200"> Sidebar Demo </h1>  */}
+
                 {/*Linea orizzonatale per dividere l'area di titolo dall area app*/}
-                <hr className="my-4"></hr>
+                <hr className="my-3 mx-1"></hr> 
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sodales diam vitae nibh facilisis gravida eget nec leo. 
                 </p>

@@ -4,7 +4,7 @@ import { Topbar } from './Topbar';
 import { Outlet, Link } from "react-router-dom";
 
 const Layout = () => {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div className='relative'>

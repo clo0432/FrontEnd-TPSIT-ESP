@@ -1,26 +1,38 @@
-import React, { useEffect, useRef } from "react";
-import { IoCloseSharp } from "react-icons/io5"; // icona X per chiudere la sidebar
-import { BsList } from "react-icons/bs" // Icona hamburger per aprire la sidebar
+import React from "react";
 
-// Definisco il bottone e la sua funzionalità
 const SidebarToggleButton = ( {isSidebarOpen, setIsOpen} ) => {
     return (
-      <button onClick={() => {setIsOpen(!isSidebarOpen)}}>
-            {isSidebarOpen ? (
-                <SidebarToggleIcon icon={<IoCloseSharp size="30" />} />
-            ) : (
-                <SidebarToggleIcon icon={<BsList size="30" />} />
-            )}
-      </button> 
+        <button id="sidebarButtonData" className="sidebarToggleButton" 
+                aria-controls="sidebar" aria-expanded="false"
+                onClick={() => {
+                    setIsOpen(!isSidebarOpen); 
+                    const currentState = sidebarButtonData.getAttribute("data-state");
+                    if (!currentState || currentState === "closed") {
+                        sidebarButtonData.setAttribute("data-state", "opened");
+                        sidebarButtonData.setAttribute("aria-expanded", "true");
+                    } else {
+                        sidebarButtonData.setAttribute("data-state", "closed");
+                        sidebarButtonData.setAttribute("aria-expanded", "false");
+                    }
+                }
+        }>
+            <svg className="hamburger" viewBox="0 0 100 100" width="35" >
+                <rect className="line top" 
+                      width="70" height="7"
+                      x="14" y="27.5" rx="5">
+                </rect>
+                <rect className="line middle" 
+                      width="70" height="7"
+                      x="14" y="47.5" rx="5">
+                </rect>
+                <rect className="line bottom" 
+                      width="70" height="7"
+                      x="14" y="67.5" rx="5">
+                </rect>
+            </svg>
+        </button>
     )
 };
-
-// Definisco l'icona dei bottoni
-const SidebarToggleIcon = ({ icon }) => (
-    <div className="topbar-icon fixed top-0 right-0">
-        {icon}
-    </div>
-)
 
 export const Topbar = ( {isSidebarOpen, setIsOpen} ) => {
     return (
