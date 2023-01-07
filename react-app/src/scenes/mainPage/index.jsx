@@ -1,7 +1,7 @@
 const MainPage = () => {
     return (
-        <div id="mainpageContainer" className ="container mx-auto px-5 py-20">
-            <title className="title-text">
+        <div id="mainpageContainer" className =" px-5 py-20">
+            <title className="page-title-text">
                 Benvenuto all'interno della demo!
             </title> 
             <p className="py-10">
