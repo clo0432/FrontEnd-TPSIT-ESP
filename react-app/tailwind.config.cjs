@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  content: {
+    files: ["./index.html", "./src/**/*.{js,jsx}"],
+    transform: (content) => content.replace(/taos:/g, ''),
+  },
   mode: "jit",
   theme: {
     container: {
@@ -24,5 +27,13 @@ module.exports = {
     'lg': '992px',
     'xl': '1200px',
   },
-  plugins: [],
+  plugins: [
+    require('@headlessui/tailwindcss'),
+    require('taos/plugin')
+  ],
+  safelist: [
+    '!duration-0',
+    '!delay-0',
+    'html.js :where([class*="taos:"]:not(.taos-init))'
+  ]
 };

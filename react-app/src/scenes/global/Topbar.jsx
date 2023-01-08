@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import { Logo, Hamburger } from "./assets/icons";
 
 const SidebarToggleButton = ( {isSidebarOpen, setIsOpen} ) => {
@@ -23,8 +23,19 @@ const SidebarToggleButton = ( {isSidebarOpen, setIsOpen} ) => {
 };
 
 export const Topbar = ( {isSidebarOpen, setIsOpen} ) => {
+    const [isSticky, setIsSticky] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+          setIsSticky(window.scrollY > 0);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
+
     return (
-        <nav className="fixed flex items-center justify-between flex-wrap z-50 top-0 left-0 h-16 w-full m-0  bg-[#21184D] shadow-lg">
+        <nav className={`${isSticky ? 'sticky' : 'fixed'}  topbar`}>
             <div className="flex flex-wrap items-center flex-shrink-0"> {/* Logo e titolo affianco */}
                 <Logo /> {/* Logo del sito in svg */}
                 <h1 className="website-title"> Demo Name </h1>

@@ -5,15 +5,19 @@
  
 @layer components {
     body {
-        @apply bg-[#0AAEAE];
+        @apply bg-gray-900;
     }
-
     .website-title {
         @apply items-center text-xl font-bold text-white tracking-tight;
     }
 
     .page-title-text {
-        @apply flex py-10 top-7 h-16 justify-center text-2xl font-bold;
+        @apply flex items-center h-40 py-[200px] justify-center text-4xl font-extrabold text-transparent
+        bg-gradient-to-r bg-clip-text from-indigo-500 via-purple-500 to-pink-500;
+    }
+
+    .background-main-page {
+        @apply h-full w-full bg-gradient-to-b from-[#2a0d40] to-black;
     }
 
     /* Logo */
@@ -23,10 +27,14 @@
     }
 
     .topbar {
-        @apply flex items-center justify-between p-6
-        top-0 left-0 h-16 w-full m-0 bg-[#21184D] shadow-lg;
+        @apply fixed flex inset-x-0 top-0 h-16 z-50
+        transition-all ease-in-out duration-200;
     }
     
+    .topbar.sticky {
+        @apply bg-opacity-40 bg-black backdrop-blur-sm;
+    }
+
     /* Navbar */
     .sidebarNav {
         @apply flex flex-wrap items-center justify-start
@@ -35,8 +43,8 @@
 
     /* Animazione di hover lo sfondo del bottone ed il suo colore */
     .sidebarToggleButton {
-        @apply flex items-center justify-center
-        fixed top-0 right-0 h-10 w-12 mt-3 mx-3 
+        @apply absolute flex items-center justify-center
+        top-0 right-0 h-10 w-12 mt-3 mx-3 
         hover:bg-[#8875FF] dark:bg-[#3F2F94] fill-[#8875FF] hover:fill-white
         hover:rounded-xl rounded-3xl
         transition-all duration-200 ease-linear
@@ -81,9 +89,8 @@
     .sidebar {
         @apply fixed z-50 top-16 bottom-0 left-[100vw] 
         lg:right-0 p-1 overflow-y-auto
-        text-center bg-gray-800;
-        width: 15vw;
-        min-width: 200px;
+        text-center;
+        width: 225px;
     }
 
     /* Animazione sidebar per apertura e chiusura inoltre sposta il contenuto della pagina */
@@ -101,7 +108,8 @@
 
     /* Contenuto della pagina */
     .outletOpen {
-        width: calc(100vw - 15vw);
+        width: calc(100vw - 225px);
+        
         /* max-width: calc(100vw - 200px); */
         transition: all 0s, width 300ms cubic-bezier(.44,0,1,1); /*animazione di entrata*/  
     }

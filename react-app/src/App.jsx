@@ -10,9 +10,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<MainPage />} />
-          {/* <Route path="blogs" element={<Blogs />} /> */}
-          {/* <Route path="contact" element={<Contact />} /> */}
-          {/* <Route path="*" element={<NoPage />} /> */}
+          {/* <Route path="team" element={<Team />} /> */}
+          {/* <Route path="projects" element={<Projects />} /> */}
+          {/* <Route path="reports" element={<Reports />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>
