@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { FcSearch } from "react-icons/fc";
 import { Hamburger, Logo } from "./assets/icons";
 
-const SidebarToggleButton = ({ isSidebarOpen, setIsOpen }) => {
+const SidebarToggleButton = ({ isSidebarOpen, setIsSidebarOpen }) => {
     return (
         <button
             id="sidebarButtonData"
@@ -9,7 +10,7 @@ const SidebarToggleButton = ({ isSidebarOpen, setIsOpen }) => {
             aria-controls="sidebar"
             aria-expanded="false"
             onClick={() => {
-                setIsOpen(!isSidebarOpen);
+                setIsSidebarOpen(!isSidebarOpen);
                 const currentState =
                     sidebarButtonData.getAttribute("data-state");
                 if (!currentState || currentState === "closed") {
@@ -26,7 +27,24 @@ const SidebarToggleButton = ({ isSidebarOpen, setIsOpen }) => {
     );
 };
 
-export const Topbar = ({ isSidebarOpen, setIsOpen }) => {
+const SearchbarToggleButton = ({ isSearchbarOpen, setIsSearchbarOpen }) => {
+    const handleSearchClick = () => {
+        console.log("Click!");
+    };
+
+    return (
+        <button className="searchbarToggleButton" onClick={handleSearchClick}>
+            <FcSearch size={20} />
+        </button>
+    );
+};
+
+export const Topbar = ({
+    isSidebarOpen,
+    setIsSidebarOpen,
+    isSearchbarOpen,
+    setIsSearchbarOpen,
+}) => {
     const [isSticky, setIsSticky] = useState(false);
     useEffect(() => {
         const handleScroll = () => {
@@ -46,10 +64,16 @@ export const Topbar = ({ isSidebarOpen, setIsOpen }) => {
                 <Logo /> {/* Logo del sito in svg */}
                 <h1 className="website-title"> Demo Name </h1>
             </div>
-            <SidebarToggleButton
-                isSidebarOpen={isSidebarOpen}
-                setIsOpen={setIsOpen}
-            />
+            <div className="space-x-[100px]">
+                <SearchbarToggleButton
+                    isSearchbarOpen={isSearchbarOpen}
+                    setIsSearchbarOpen={setIsSearchbarOpen}
+                />
+                <SidebarToggleButton
+                    isSidebarOpen={isSidebarOpen}
+                    setIsSidebarOpen={setIsSidebarOpen}
+                />
+            </div>
         </nav>
     );
 };
