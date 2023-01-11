@@ -4,23 +4,29 @@ import { Sidebar } from "./Sidebar";
 import { Topbar } from "./Topbar";
 
 const Layout = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isSideOpen, setIsSideOpen] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     return (
         <div className="background-main-page">
             {/* Pagina iniziale con titolo, breve descrizione e select */}
-            <Topbar isSidebarOpen={isOpen} setIsOpen={setIsOpen} />{" "}
+            <Topbar
+                isSidebarOpen={isSideOpen}
+                setIsSidebarOpen={setIsSideOpen}
+                isSearchbarOpen={isSearchOpen}
+                setIsSearchbarOpen={setIsSearchOpen}
+            />{" "}
             {/* Topbar con bottone per sidebar, titolo, searchbar con animazione apple */}
             <div className="mainContent">
                 <Sidebar
                     id="sidebar"
-                    isSidebarOpen={isOpen}
-                    setIsOpen={setIsOpen}
+                    isSidebarOpen={isSideOpen}
+                    setIsSideOpen={setIsSideOpen}
                 />{" "}
                 {/* Sidebar con: admin, login... */}
                 <div
                     className={`${
-                        isOpen ? "outletOpen" : "outletClosed"
+                        isSideOpen ? "outletOpen" : "outletClosed"
                     } relative left-0`}
                 >
                     <Outlet />
