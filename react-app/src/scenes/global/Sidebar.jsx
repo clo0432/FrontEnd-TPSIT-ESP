@@ -1,21 +1,46 @@
-import { Outlet, Link } from "react-router-dom";
+import React from "react";
+import {
+    FcConferenceCall,
+    FcHome,
+    FcOpenedFolder,
+    FcSettings,
+    FcSurvey,
+} from "react-icons/fc";
 
-const Sidebar = () => {
+export const Sidebar = ({ isSidebarOpen }) => {
+    console.log(isSidebarOpen);
     return (
-        <>
-            <div>Sidebar</div>
-            <ul>
-                <li>
-                    <Link to="graphs">Grafici</Link>
-                </li>
-                <li>
-                    <Link to="/">MainPage</Link>
-                </li>
-            </ul>
-
-            <Outlet />
-        </>
+        // Definisco il rettangolo che fa da sfondo per la sidebar e che ne cotiene i suoi elementi
+        <div
+            className={`${
+                isSidebarOpen ? "sidebarOpen" : "sidebarClosed"
+            } sidebar`}
+        >
+            {/*Elementi della sidebar*/}
+            <nav className="sidebarNav">
+                {" "}
+                {/* Sample degli elementi della topbar */}
+                <a href="#" className="sidebarButtons">
+                    <FcHome size={25} />
+                    <span>home</span>
+                </a>
+                <a href="#" className="sidebarButtons">
+                    <FcConferenceCall size={25} />
+                    <span>team</span>
+                </a>
+                <a href="#" className="sidebarButtons">
+                    <FcOpenedFolder size={25} />
+                    <span>projects</span>
+                </a>
+                <a href="#" className="sidebarButtons">
+                    <FcSurvey size={25} />
+                    <span>reports</span>
+                </a>
+                <a href="#" className="sidebarButtons">
+                    <FcSettings size={25} />
+                    <span>settings</span>
+                </a>
+            </nav>
+        </div>
     );
 };
-
-export default Sidebar;
