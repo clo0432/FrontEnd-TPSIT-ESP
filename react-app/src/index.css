@@ -38,17 +38,18 @@
     /* Navbar */
     .sidebarNav {
         @apply flex flex-wrap items-center justify-start
-        space-y-2 mt-3 mx-3;
+        space-y-2 mt-2 mx-3;
     }
 
     /* Animazione di hover lo sfondo del bottone ed il suo colore */
     .sidebarToggleButton {
-        @apply absolute flex items-center justify-center
-        top-0 right-0 h-10 w-12 mt-3 mx-3 
-        hover:bg-[#8875FF] dark:bg-[#3F2F94] fill-[#8875FF] hover:fill-white
-        hover:rounded-xl rounded-3xl
+        @apply absolute flex items-center justify-center border-2 border-transparent
+        border-secondaryFlash
+        top-0 right-0 h-10 w-12 mt-3 mx-3
+        fill-[#8875FF] hover:fill-white
+        hover:rounded-3xl rounded-xl
         transition-all duration-200 ease-linear
-        cursor-pointer shadow-lg;
+        cursor-pointer;
     }
 
     /* Animazione dell bottone menu hamburger che diventa una X e viceversa a seconda dello stato della sidebar */
@@ -116,11 +117,23 @@
     }
 
     .sidebarButtons {
-        @apply flex items-center justify-between w-full font-bold px-4 py-3 
-        text-[#aba0f5] bg-[#3F2F94] fill-[#8875FF]
-        hover:bg-[#8875FF] hover:text-white
+        @apply flex items-center justify-between w-full font-bold
+        space-y-3 px-4 py-3 border-x-2 border-y-2 border-transparent
+        border-x-accent hover:border-accent
+        text-accent hover:text-[#FEC29A]
+        hover:border-2
         hover:rounded-xl rounded-3xl
         transition-all duration-200 ease-linear
-        cursor-pointer shadow-lg;
+        cursor-pointer shadow-lg hover:shadow-accent/30;
+    }
+
+    .goButton {
+        @apply flex items-center justify-between w-fit font-bold 
+        px-4 py-2 border-2 border-transparent
+        hover:border-accent
+        text-accent hover:text-[#FEC29A]
+        hover:rounded-xl rounded-3xl
+        transition-all duration-200 ease-linear
+        cursor-pointer shadow-lg hover:shadow-accent/30;
     }
 }

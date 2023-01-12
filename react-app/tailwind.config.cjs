@@ -11,10 +11,11 @@ module.exports = {
         },
         extend: {
             colors: {
-                primary: "#00040f",
-                secondary: "#00f6ff",
-                dimWhite: "rgba(255, 255, 255, 0.7)",
-                dimBlue: "rgba(9, 151, 124, 0.1)",
+                primary: "#1D092C",
+                secondaryFlash: "#9A4ECD",
+                secondaryDim: "#674C72",
+                accent: "#FA7929",
+                accentHover: "#FEC29A",
             },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],

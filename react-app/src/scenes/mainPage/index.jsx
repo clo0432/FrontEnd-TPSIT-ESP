@@ -3,7 +3,7 @@ import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import React, { Fragment, useState } from "react";
 
 const schools = [
-    { id: 1, label: "Seleziona una scuola", unavailable: true },
+    { id: 1, label: "Seleziona una scuola ...", unavailable: true },
     { id: 2, label: "Alberghetti (Via S. Benedetto)" },
     { id: 3, label: "Alberghetti (Viale Dante Alighieri)" },
     { id: 4, label: "Scarabelli Ghini" },
@@ -12,7 +12,7 @@ const schools = [
 ];
 
 const floor_departments = [
-    { id: 1, label: "Seleziona un piano o reparto", unavailable: true },
+    { id: 1, label: "Seleziona un piano o reparto ...", unavailable: true },
     { id: 2, label: "Piano terra" },
     { id: 3, label: "Piano primo" },
     { id: 4, label: "Piano secondo" },
@@ -37,13 +37,13 @@ const MainPage = () => {
                 {/* Selector per scuola */}
                 <Listbox value={selectedSchool} onChange={setSelectedSchool}>
                     <div className="relative mt-1">
-                        <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+                        <Listbox.Button className="relative w-72 cursor-default rounded-lg bg-secondaryDim text-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
                             <span className="block truncate">
                                 {selectedSchool.label}
                             </span>
                             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                                 <ChevronUpDownIcon
-                                    className="h-5 w-5 text-gray-400"
+                                    className="h-5 w-5 text-white"
                                     aria-hidden="true"
                                 />
                             </span>
@@ -54,15 +54,15 @@ const MainPage = () => {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                         >
-                            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-secondaryDim py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                 {schools.map((school, schoolIndex) => (
                                     <Listbox.Option
                                         key={schoolIndex}
                                         className={({ active }) =>
                                             `relative cursor-default select-none py-2 pl-10 pr-4 ${
                                                 active
-                                                    ? "bg-amber-100 text-[#FA7921]"
-                                                    : "text-gray-900"
+                                                    ? "bg-secondaryFlash text-white"
+                                                    : "text-white"
                                             }`
                                         }
                                         value={school}
@@ -80,7 +80,7 @@ const MainPage = () => {
                                                     {school.label}
                                                 </span>
                                                 {selected ? (
-                                                    <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
+                                                    <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-primary">
                                                         <CheckIcon
                                                             className="h-5 w-5"
                                                             aria-hidden="true"
@@ -102,13 +102,13 @@ const MainPage = () => {
                     onChange={setSelectedFloor_departments}
                 >
                     <div className="relative mt-1">
-                        <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+                        <Listbox.Button className="relative w-48 cursor-default rounded-lg bg-secondaryDim text-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
                             <span className="block truncate">
                                 {selectedFloor_departments.label}
                             </span>
                             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                                 <ChevronUpDownIcon
-                                    className="h-5 w-5 text-gray-400"
+                                    className="h-5 w-5 text-white"
                                     aria-hidden="true"
                                 />
                             </span>
@@ -119,7 +119,7 @@ const MainPage = () => {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                         >
-                            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-secondaryDim py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                 {floor_departments.map(
                                     (
                                         floor_department,
@@ -130,8 +130,8 @@ const MainPage = () => {
                                             className={({ active }) =>
                                                 `relative cursor-default select-none py-2 pl-10 pr-4 ${
                                                     active
-                                                        ? "bg-amber-100 text-amber-900"
-                                                        : "text-gray-900"
+                                                        ? "bg-secondaryFlash text-white"
+                                                        : "text-white"
                                                 }`
                                             }
                                             value={floor_department}
@@ -151,7 +151,7 @@ const MainPage = () => {
                                                         {floor_department.label}
                                                     </span>
                                                     {selected ? (
-                                                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
+                                                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-primary">
                                                             <CheckIcon
                                                                 className="h-5 w-5"
                                                                 aria-hidden="true"
@@ -169,9 +169,7 @@ const MainPage = () => {
                 </Listbox>
 
                 {/* Pulsante per cercare */}
-                <button className="bg-[#FA7921] hover:bg-[#f98e47] text-white font-bold py-2 px-4 rounded-full">
-                    Cerca
-                </button>
+                <button className="goButton">Vai</button>
             </div>
 
             <p className="relative mt-96">

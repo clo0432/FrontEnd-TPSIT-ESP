@@ -20,7 +20,7 @@ export const Sidebar = ({ isSidebarOpen }) => {
             <nav className="sidebarNav">
                 {" "}
                 {/* Sample degli elementi della topbar */}
-                <a href="#" className="sidebarButtons">
+                <a href="#" className="sidebarButtons border-t-accent">
                     <FcHome size={25} />
                     <span>home</span>
                 </a>
@@ -36,7 +36,7 @@ export const Sidebar = ({ isSidebarOpen }) => {
                     <FcSurvey size={25} />
                     <span>reports</span>
                 </a>
-                <a href="#" className="sidebarButtons">
+                <a href="#" className="sidebarButtons border-b-accent">
                     <FcSettings size={25} />
                     <span>settings</span>
                 </a>
