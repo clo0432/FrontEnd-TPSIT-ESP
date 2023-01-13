@@ -44,10 +44,11 @@
     /* Animazione di hover lo sfondo del bottone ed il suo colore */
     .sidebarToggleButton {
         @apply absolute flex items-center justify-center border-2 border-transparent
-        border-secondaryFlash
         top-0 right-0 h-10 w-12 mt-3 mx-3
-        fill-[#8875FF] hover:fill-white
-        hover:rounded-3xl rounded-xl
+        fill-[#8875FF] hover:fill-[#b5aaff]
+        hover:rounded-xl rounded-3xl
+        shadow-lg hover:border-secondaryFlash/30
+        hover:shadow-secondaryFlash/30
         transition-all duration-200 ease-linear
         cursor-pointer;
     }
@@ -130,7 +131,7 @@
     .goButton {
         @apply flex items-center justify-between w-fit font-bold 
         px-4 py-2 border-2 border-transparent
-        hover:border-accent
+        border-accent
         text-accent hover:text-[#FEC29A]
         hover:rounded-xl rounded-3xl
         transition-all duration-200 ease-linear

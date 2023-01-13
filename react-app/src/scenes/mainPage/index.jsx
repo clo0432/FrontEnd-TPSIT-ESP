@@ -169,7 +169,9 @@ const MainPage = () => {
                 </Listbox>
 
                 {/* Pulsante per cercare */}
-                <button className="goButton">Vai</button>
+                <a className="goButton" href="/graph">
+                    Vai
+                </a>
             </div>
 
             <p className="relative mt-96">
