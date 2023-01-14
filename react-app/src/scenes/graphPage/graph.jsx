@@ -96,27 +96,72 @@ const ToggleSwitchCar = () => {
     );
 };
 
+const DataTable = () => {
+    return (
+        <table
+            className="table-fixed border border-slate-500 text-white font-mono
+                       justify-center w-[1000px]"
+        >
+            <thead>
+                <tr>
+                    <th className="border border-slate-600">Song</th>
+                    <th className="border border-slate-600">Artist</th>
+                    <th className="border border-slate-600">Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td className="border border-slate-700">
+                        The Sliding Mr. Bones (Next Stop, Pottersville)
+                    </td>
+                    <td className="border border-slate-700">Malcolm Lockyer</td>
+                    <td className="border border-slate-700">1961</td>
+                </tr>
+                <tr>
+                    <td className="border border-slate-700">Witchy Woman</td>
+                    <td className="border border-slate-700">The Eagles</td>
+                    <td className="border border-slate-700">1972</td>
+                </tr>
+                <tr>
+                    <td className="border border-slate-700">Shining Star</td>
+                    <td className="border border-slate-700">
+                        Earth, Wind, and Fire
+                    </td>
+                    <td className="border border-slate-700"> 1975</td>
+                </tr>
+            </tbody>
+        </table>
+    );
+};
+
 const GraphPage = () => {
     return (
-        <div className="flex h-full w-full pt-10 pb-[800px] justify-start">
-            {/* Div contenente gli switch per abilitare e disabilitare degli oggetti nel grafico */}
-            <div className="space-y-3 m-10">
-                <div className="grid grid-cols-2 space-x-10">
-                    <p className="text-white text-xl">Car</p>
-                    <ToggleSwitchCar />
+        <div className="pb-[800px]">
+            <div className="flex h-full w-full pt-10 justify-start">
+                {/* Div contenente gli switch per abilitare e disabilitare degli oggetti nel grafico */}
+                <div className="space-y-3 m-10">
+                    <div className="grid grid-cols-2 space-x-10">
+                        <p className="text-white text-xl">Car</p>
+                        <ToggleSwitchCar />
+                    </div>
+                    <div className="grid grid-cols-2 space-x-10">
+                        <p className="text-white text-xl">Plane</p>
+                        <ToggleSwitchCar />
+                    </div>
+                    <div className="grid grid-cols-2 space-x-10">
+                        <p className="text-white text-xl">Horse</p>
+                        <ToggleSwitchCar />
+                    </div>
                 </div>
-                <div className="grid grid-cols-2 space-x-10">
-                    <p className="text-white text-xl">Plane</p>
-                    <ToggleSwitchCar />
-                </div>
-                <div className="grid grid-cols-2 space-x-10">
-                    <p className="text-white text-xl">Horse</p>
-                    <ToggleSwitchCar />
+
+                {/* Div contenente il grafico */}
+                <div className="h-[600px] w-[90vw]">
+                    <Graph data={data} theme={theme} />
                 </div>
             </div>
-            {/* Div contenente il grafico */}
-            <div className="h-[600px] w-[90vw]">
-                <Graph data={data} theme={theme} />
+            {/* Div contenente la tabella */}
+            <div className="h-[800px] w-full justify-center pt-10 mx-auto">
+                <DataTable />
             </div>
         </div>
     );
