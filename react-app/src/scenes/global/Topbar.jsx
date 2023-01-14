@@ -44,14 +44,11 @@ export const Topbar = ({ isSidebarOpen, setIsOpen }) => {
 
     return (
         <nav id="topbar" className="topbar">
-            <div className="flex flex-wrap items-center flex-shrink-0">
-                {/* Logo e titolo affianco */}
-                <a href="/">
-                    <Logo />
-                </a>
-                {/* Logo del sito in svg */}
+            {/* Logo e titolo affianco */}
+            <a href="/" className="flex flex-wrap items-center flex-shrink-0">
+                <Logo />
                 <h1 className="website-title"> Air quality </h1>
-            </div>
+            </a>
             <SidebarToggleButton
                 isSidebarOpen={isSidebarOpen}
                 setIsOpen={setIsOpen}

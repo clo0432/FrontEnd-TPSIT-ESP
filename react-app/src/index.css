@@ -32,7 +32,7 @@
     }
 
     .background-topbar {
-        @apply bg-opacity-40 bg-black backdrop-blur-sm z-40;
+        @apply bg-opacity-70 bg-black backdrop-blur-sm z-40;
     }
 
     /* Navbar */

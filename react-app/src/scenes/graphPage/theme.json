@@ -1,8 +1,7 @@
 {
-    "background": "#ffffff",
     "fontSize": 50,
     "axis": {
-        "textColor": "#000000",
+        "fill": "#FFFFFF",
         "domain": {
             "line": {
                 "stroke": "#777777",
@@ -12,18 +11,17 @@
         "legend": {
             "text": {
                 "fontSize": 15,
-                "fill": "#333333"
+                "fill": "#FFFFFF"
             }
         },
         "ticks": {
             "line": {
-                "stroke": "#777777",
+                "stroke": "#FFFFFF",
                 "strokeWidth": 1
             },
             "text": {
-                "textColor": "#FFFFFF",
                 "fontSize": 12,
-                "fill": "#333333"
+                "fill": "#FFFFFF"
             }
         }
     },
@@ -36,26 +34,26 @@
     "legends": {
         "title": {
             "text": {
-                "fontSize": 11,
-                "fill": "#333333"
+                "fontSize": 12,
+                "fill": "#FFFFFF"
             }
         },
         "text": {
             "fontSize": 12,
-            "fill": "#333333"
+            "fill": "#FFFFFF"
         },
         "ticks": {
             "line": {},
             "text": {
                 "fontSize": 10,
-                "fill": "#333333"
+                "fill": "#FFFFFF"
             }
         }
     },
     "annotations": {
         "text": {
             "fontSize": 13,
-            "fill": "#333333",
+            "fill": "#FFFFFF",
             "outlineWidth": 2,
             "outlineColor": "#000000",
             "outlineOpacity": 1
@@ -84,7 +82,6 @@
     "tooltip": {
         "container": {
             "background": "#ffffff",
-            "color": "#333333",
             "fontSize": 12
         },
         "basic": {},
