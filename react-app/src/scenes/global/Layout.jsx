@@ -15,14 +15,14 @@ const Layout = () => {
                 setIsSidebarOpen={setIsSideOpen}
                 isSearchbarOpen={isSearchOpen}
                 setIsSearchbarOpen={setIsSearchOpen}
-            />{" "}
+            />
             {/* Topbar con bottone per sidebar, titolo, searchbar con animazione apple */}
             <div className="mainContent">
                 <Sidebar
                     id="sidebar"
                     isSidebarOpen={isSideOpen}
                     setIsSideOpen={setIsSideOpen}
-                />{" "}
+                />
                 {/* Sidebar con: admin, login... */}
                 <div
                     className={`${

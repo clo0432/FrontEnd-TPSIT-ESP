@@ -43,8 +43,8 @@
 
     .searchbarToggleButton {
         @apply absolute flex items-center justify-center
-        top-0 right-0 h-10 w-12 mt-3 mx-3
-        hover:bg-[#8875F] dark:bg-[#3F2F94] fill-[#8875FF] hover:fill-white
+        top-0 right-10 h-10 w-12 mt-3 mx-3
+        hover:bg-[#8875FF] dark:bg-[#3F2F94] fill-[#8875FF] hover:fill-white
         hover:rounded-xl rounded-3xl
         transition-all duration-200 ease-linear
         cursor-pointer shadow-lg;
