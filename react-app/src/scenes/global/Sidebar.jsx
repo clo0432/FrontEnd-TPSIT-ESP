@@ -8,7 +8,6 @@ import {
 } from "react-icons/fc";
 
 export const Sidebar = ({ isSidebarOpen }) => {
-    console.log(isSidebarOpen);
     return (
         // Definisco il rettangolo che fa da sfondo per la sidebar e che ne cotiene i suoi elementi
         <div
