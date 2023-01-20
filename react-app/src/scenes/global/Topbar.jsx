@@ -1,7 +1,7 @@
+import { Combobox, Transition } from "@headlessui/react";
 import React, { useEffect, useState } from "react";
 import { FcSearch } from "react-icons/fc";
 import { Hamburger, Logo } from "./assets/icons";
-import { Transition, Combobox } from "@headlessui/react";
 
 const SidebarToggleButton = ({ isSidebarOpen, setIsSidebarOpen }) => {
     return (
@@ -32,9 +32,11 @@ const SearchbarToggleButton = ({ isSearchbarOpen, setIsSearchbarOpen }) => {
     const handleSearchClick = () => {
         console.log("Click!");
         setIsSearchbarOpen(!isSearchbarOpen);
+        // add blurred class to the 
     };
 
     const luoghi = [
+        "",
         "Alberghetti (Via S. Benedetto) - Piano terra",
         "Alberghetti (Via S. Benedetto) - Piano primo",
         "Alberghetti (Via S. Benedetto) - Piano secondo",
@@ -55,43 +57,65 @@ const SearchbarToggleButton = ({ isSearchbarOpen, setIsSearchbarOpen }) => {
         "Rambaldi - Piano primo",
         "Rambaldi - Piano secondo",
         "Rambaldi - Palestra",
-      ]      
+    ];
 
-    const [luogoSelezionato, setLuogoSelezionato] = useState(luoghi[0])
-    const [query, setQuery] = useState('')
+    const [luogoSelezionato, setLuogoSelezionato] = useState(luoghi[0]);
+    const [query, setQuery] = useState("");
 
     const luoghiFiltrati =
-    query === ''
-      ? luoghi
-      : luoghi.filter((luogo) => {
-          return luogo.toLowerCase().includes(query.toLowerCase())
-        })
+        query === ""
+            ? luoghi
+            : luoghi.filter((luogo) => {
+                  return luogo.toLowerCase().includes(query.toLowerCase());
+              });
 
     return (
         <>
-            <button className="searchbarToggleButton" onClick={handleSearchClick}>
+            <button
+                className="searchbarToggleButton"
+                onClick={handleSearchClick}
+            >
                 <FcSearch size={20} />
             </button>
-            <Transition 
+            <Transition
+                className="absolute inset-0 mt-[10vh]"
                 show={isSearchbarOpen}
-                
-                //enter={}
-                
-
-
+                enter="transition ease-out duration-300 transform"
+                enterFrom="scale-75"
+                enterTo="scale-100"
+                leave="transition ease-in duration-300 transform"
+                leaveFrom="scale-100"
+                leaveTo="scale-75"
 
                 //style={{color: 'white'}}
             >
-                <div className="fixed inset-0 top-24 w-2/5 ml-auto mr-auto">
-                    <Combobox value={luogoSelezionato} onChange={setLuogoSelezionato}>
+                <div className="w-2/5 ml-auto mr-auto">
+                    <Combobox
+                        value={luogoSelezionato}
+                        onChange={setLuogoSelezionato}
+                    >
                         <div className="text-black">
-                            <Combobox.Input onChange={(event) => setQuery(event.target.value)} className="w-full"/>
+                            <Combobox.Input
+                                onChange={(event) =>
+                                    setQuery(event.target.value)
+                                }
+                                className="w-full bg-white rounded p-2"
+                            />
                             <div className="text-white">
                                 <Combobox.Options>
                                     {luoghiFiltrati.map((luogo) => (
-                                        <Combobox.Option key={luogo} value={luogo}>
-                                            {({ active }) =>(
-                                                <div className={`p-2 ${active ? 'bg-gray-700' : ''}`}>
+                                        <Combobox.Option
+                                            key={luogo}
+                                            value={luogo}
+                                        >
+                                            {({ active }) => (
+                                                <div
+                                                    className={`p-2 ${
+                                                        active
+                                                            ? "bg-gray-700"
+                                                            : ""
+                                                    }`}
+                                                >
                                                     {luogo}
                                                 </div>
                                             )}
@@ -139,7 +163,7 @@ export const Topbar = ({
                 <SidebarToggleButton
                     isSidebarOpen={isSidebarOpen}
                     setIsSidebarOpen={setIsSidebarOpen}
-                    />
+                />
             </div>
         </nav>
     );

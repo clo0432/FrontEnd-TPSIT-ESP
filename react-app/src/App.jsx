@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./scenes/global/Layout";
 import MainPage from "./scenes/mainPage";
 
-function App() {
+const App = () => {
     return (
         <BrowserRouter>
             <Routes>
@@ -17,6 +17,6 @@ function App() {
             </Routes>
         </BrowserRouter>
     );
-}
+};
 
 export default App;
