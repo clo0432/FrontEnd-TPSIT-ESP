@@ -4,9 +4,14 @@
 @tailwind utilities;
 
 @layer components {
+    #root {
+        @apply w-full h-full;
+    }
+
     body {
         @apply bg-gray-900;
     }
+
     .website-title {
         @apply items-center text-xl font-bold text-white tracking-tight;
     }
@@ -17,7 +22,7 @@
     }
 
     .background-main-page {
-        @apply h-full w-full bg-gradient-to-b from-[#2a0d40] to-black;
+        @apply h-[101vh] w-full bg-gradient-to-b from-[#2a0d40] to-black;
     }
 
     /* Logo */
@@ -129,12 +134,17 @@
     }
 
     .goButton {
-        @apply flex items-center justify-between w-fit font-bold 
+        @apply flex items-center justify-between w-fit 
+        h-[36px] font-bold
         px-4 py-2 border-2 border-transparent
         border-accent
         text-accent hover:text-[#FEC29A]
         hover:rounded-xl rounded-3xl
         transition-all duration-200 ease-linear
         cursor-pointer shadow-lg hover:shadow-accent/30;
+    }
+
+    .selectDisabled {
+        @apply hidden;
     }
 }

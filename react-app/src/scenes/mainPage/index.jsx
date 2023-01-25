@@ -24,20 +24,23 @@ const MainPage = () => {
     const [selectedFloor_departments, setSelectedFloor_departments] = useState(
         floor_departments[0]
     );
-
     return (
-        <div id="mainpageContainer" className="px-5 pb-[1200px] h-full">
+        <div id="mainpageContainer" className="h-full">
             {/* Titolo */}
             <title className="page-title-text">
                 Benvenuto all'interno della demo!
             </title>
 
             {/* Selectors */}
-            <div className="relative flex top-16 w-full items-center justify-center space-x-10">
+            <div className="relative flex top-16 w-full items-center justify-center align-middle space-x-10">
                 {/* Selector per scuola */}
-                <Listbox value={selectedSchool} onChange={setSelectedSchool}>
-                    <div className="relative mt-1">
-                        <Listbox.Button className="relative w-72 cursor-default rounded-lg bg-secondaryDim text-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+                <Listbox
+                    value={selectedSchool}
+                    onChange={setSelectedSchool}
+                    className="cursor-pointer"
+                >
+                    <div className="relative">
+                        <Listbox.Button className="relative w-72 rounded-lg bg-secondaryDim text-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
                             <span className="block truncate">
                                 {selectedSchool.label}
                             </span>
@@ -97,81 +100,103 @@ const MainPage = () => {
                 </Listbox>
 
                 {/* Selector per piano */}
-                <Listbox
-                    value={selectedFloor_departments}
-                    onChange={setSelectedFloor_departments}
+                <Transition
+                    show={!selectedSchool.unavailable}
+                    enter="transition ease-out duration-200"
+                    enterFrom="transform opacity-100 scale-0"
+                    enterTo="transform opacity-100 scale-100"
                 >
-                    <div className="relative mt-1">
-                        <Listbox.Button className="relative w-48 cursor-default rounded-lg bg-secondaryDim text-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-                            <span className="block truncate">
-                                {selectedFloor_departments.label}
-                            </span>
-                            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                                <ChevronUpDownIcon
-                                    className="h-5 w-5 text-white"
-                                    aria-hidden="true"
-                                />
-                            </span>
-                        </Listbox.Button>
-                        <Transition
-                            as={Fragment}
-                            leave="transition ease-in duration-100"
-                            leaveFrom="opacity-100"
-                            leaveTo="opacity-0"
-                        >
-                            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-secondaryDim py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                                {floor_departments.map(
-                                    (
-                                        floor_department,
-                                        floor_departmentIndex
-                                    ) => (
-                                        <Listbox.Option
-                                            key={floor_departmentIndex}
-                                            className={({ active }) =>
-                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                                    active
-                                                        ? "bg-secondaryFlash text-white"
-                                                        : "text-white"
-                                                }`
-                                            }
-                                            value={floor_department}
-                                            disabled={
-                                                floor_department.unavailable
-                                            }
-                                        >
-                                            {({ selected }) => (
-                                                <>
-                                                    <span
-                                                        className={`block truncate ${
-                                                            selected
-                                                                ? "font-medium"
-                                                                : "font-normal"
-                                                        }`}
-                                                    >
-                                                        {floor_department.label}
-                                                    </span>
-                                                    {selected ? (
-                                                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-primary">
-                                                            <CheckIcon
-                                                                className="h-5 w-5"
-                                                                aria-hidden="true"
-                                                            />
+                    <Listbox
+                        value={selectedFloor_departments}
+                        onChange={setSelectedFloor_departments}
+                        disabled={selectedSchool.unavailable}
+                        className={
+                            selectedSchool.unavailable
+                                ? "selectDisabled"
+                                : "selectEnabled"
+                        }
+                    >
+                        <div className="relative mt-1">
+                            <Listbox.Button className="relative w-48 rounded-lg bg-secondaryDim text-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+                                <span className="block truncate">
+                                    {selectedFloor_departments.label}
+                                </span>
+                                <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                                    <ChevronUpDownIcon
+                                        className="h-5 w-5 text-white"
+                                        aria-hidden="true"
+                                    />
+                                </span>
+                            </Listbox.Button>
+                            <Transition
+                                as={Fragment}
+                                leave="transition ease-in duration-100"
+                                leaveFrom="opacity-100"
+                                leaveTo="opacity-0"
+                            >
+                                <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-secondaryDim py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                    {floor_departments.map(
+                                        (
+                                            floor_department,
+                                            floor_departmentIndex
+                                        ) => (
+                                            <Listbox.Option
+                                                key={floor_departmentIndex}
+                                                className={({ active }) =>
+                                                    `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                                                        active
+                                                            ? "bg-secondaryFlash text-white"
+                                                            : "text-white"
+                                                    }`
+                                                }
+                                                value={floor_department}
+                                                disabled={
+                                                    floor_department.unavailable
+                                                }
+                                            >
+                                                {({ selected }) => (
+                                                    <>
+                                                        <span
+                                                            className={`block truncate ${
+                                                                selected
+                                                                    ? "font-medium"
+                                                                    : "font-normal"
+                                                            }`}
+                                                        >
+                                                            {
+                                                                floor_department.label
+                                                            }
                                                         </span>
-                                                    ) : null}
-                                                </>
-                                            )}
-                                        </Listbox.Option>
-                                    )
-                                )}
-                            </Listbox.Options>
-                        </Transition>
-                    </div>
-                </Listbox>
+                                                        {selected ? (
+                                                            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-primary">
+                                                                <CheckIcon
+                                                                    className="h-5 w-5"
+                                                                    aria-hidden="true"
+                                                                />
+                                                            </span>
+                                                        ) : null}
+                                                    </>
+                                                )}
+                                            </Listbox.Option>
+                                        )
+                                    )}
+                                </Listbox.Options>
+                            </Transition>
+                        </div>
+                    </Listbox>
+                </Transition>
 
-                {/* Pulsante per cercare */}
-                <a className="goButton" href="/graph">
-                    Vai
-                </a>
+                <Transition
+                    show={!selectedFloor_departments.unavailable}
+                    enter="transition ease-out duration-200"
+                    enterFrom="transform opacity-100 scale-0"
+                    enterTo="transform opacity-100 scale-100"
+                >
+                    {/* Pulsante per cercare */}
+                    <a className="goButton" href="/graph">
+                        Vai
+                    </a>
+                </Transition>
             </div>
         </div>
     );
