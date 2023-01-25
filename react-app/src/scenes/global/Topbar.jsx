@@ -32,7 +32,6 @@ const SearchbarToggleButton = ({ isSearchbarOpen, setIsSearchbarOpen }) => {
     const handleSearchClick = () => {
         console.log("Click!");
         setIsSearchbarOpen(!isSearchbarOpen);
-        // add blurred class to the 
     };
 
     const luoghi = [
@@ -78,54 +77,62 @@ const SearchbarToggleButton = ({ isSearchbarOpen, setIsSearchbarOpen }) => {
                 <FcSearch size={20} />
             </button>
             <Transition
-                className="absolute inset-0 mt-[10vh]"
                 show={isSearchbarOpen}
-                enter="transition ease-out duration-300 transform"
-                enterFrom="scale-75"
-                enterTo="scale-100"
-                leave="transition ease-in duration-300 transform"
-                leaveFrom="scale-100"
-                leaveTo="scale-75"
-
-                //style={{color: 'white'}}
+                className="absolute inset-0 w-[100vw] h-[100vh]"
+                enter="transition duration-500"
+                enterFrom="backdrop-blur-none backdrop-brightness-100"
+                enterTo="backdrop-blur-sm backdrop-brightness-50"
+                leave="transition duration-500"
+                leaveFrom="backdrop-blur-sm backdrop-brightness-50"
+                leaveTo="backdrop-blur-none backdrop-brightness-100"
             >
-                <div className="w-2/5 ml-auto mr-auto">
-                    <Combobox
-                        value={luogoSelezionato}
-                        onChange={setLuogoSelezionato}
-                    >
-                        <div className="text-black">
-                            <Combobox.Input
-                                onChange={(event) =>
-                                    setQuery(event.target.value)
-                                }
-                                className="w-full bg-white rounded p-2"
-                            />
-                            <div className="text-white">
-                                <Combobox.Options>
-                                    {luoghiFiltrati.map((luogo) => (
-                                        <Combobox.Option
-                                            key={luogo}
-                                            value={luogo}
-                                        >
-                                            {({ active }) => (
-                                                <div
-                                                    className={`p-2 ${
-                                                        active
-                                                            ? "bg-gray-700"
-                                                            : ""
-                                                    }`}
-                                                >
-                                                    {luogo}
-                                                </div>
-                                            )}
-                                        </Combobox.Option>
-                                    ))}
-                                </Combobox.Options>
+                <Transition
+                    show={isSearchbarOpen}
+                    enter="transition ease-out duration-300 transform"
+                    enterFrom="scale-75"
+                    enterTo="scale-100"
+                    leave="transition ease-in duration-300 transform"
+                    leaveFrom="scale-100"
+                    leaveTo="scale-75"
+                >
+                    <div className="w-2/5 mt-[10vh] ml-auto mr-auto">
+                        <Combobox
+                            value={luogoSelezionato}
+                            onChange={setLuogoSelezionato}
+                        >
+                            <div className="text-black">
+                                <Combobox.Input
+                                    onChange={(event) =>
+                                        setQuery(event.target.value)
+                                    }
+                                    className="w-full bg-white rounded p-2"
+                                />
+                                <div className="text-white">
+                                    <Combobox.Options>
+                                        {luoghiFiltrati.map((luogo) => (
+                                            <Combobox.Option
+                                                key={luogo}
+                                                value={luogo}
+                                            >
+                                                {({ active }) => (
+                                                    <div
+                                                        className={`p-2 ${
+                                                            active
+                                                                ? "bg-gray-700"
+                                                                : ""
+                                                        }`}
+                                                    >
+                                                        {luogo}
+                                                    </div>
+                                                )}
+                                            </Combobox.Option>
+                                        ))}
+                                    </Combobox.Options>
+                                </div>
                             </div>
-                        </div>
-                    </Combobox>
-                </div>
+                        </Combobox>
+                    </div>
+                </Transition>
             </Transition>
         </>
     );

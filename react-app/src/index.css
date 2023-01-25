@@ -50,10 +50,6 @@
         cursor-pointer shadow-lg;
     }
 
-    body > *:not(.blurred) {
-        filter: blur(3px) brightness(0.5);
-    }
-
     /* Animazione di hover lo sfondo del bottone ed il suo colore */
     .sidebarToggleButton {
         @apply absolute flex items-center justify-center
