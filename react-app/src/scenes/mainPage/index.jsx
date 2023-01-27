@@ -34,13 +34,9 @@ const MainPage = () => {
             {/* Selectors */}
             <div className="relative flex top-16 w-full items-center justify-center align-middle space-x-10">
                 {/* Selector per scuola */}
-                <Listbox
-                    value={selectedSchool}
-                    onChange={setSelectedSchool}
-                    className="cursor-pointer"
-                >
+                <Listbox value={selectedSchool} onChange={setSelectedSchool}>
                     <div className="relative">
-                        <Listbox.Button className="relative w-72 rounded-lg bg-secondaryDim text-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+                        <Listbox.Button className="relative w-72 rounded-lg cursor-pointer bg-secondaryDim text-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
                             <span className="block truncate">
                                 {selectedSchool.label}
                             </span>
@@ -62,7 +58,7 @@ const MainPage = () => {
                                     <Listbox.Option
                                         key={schoolIndex}
                                         className={({ active }) =>
-                                            `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                                            `relative cursor-pointer select-none py-2 pl-10 pr-4 ${
                                                 active
                                                     ? "bg-secondaryFlash text-white"
                                                     : "text-white"
@@ -117,7 +113,7 @@ const MainPage = () => {
                         }
                     >
                         <div className="relative mt-1">
-                            <Listbox.Button className="relative w-48 rounded-lg bg-secondaryDim text-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+                            <Listbox.Button className="relative w-48 rounded-lg bg-secondaryDim cursor-pointer text-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
                                 <span className="block truncate">
                                     {selectedFloor_departments.label}
                                 </span>
@@ -143,7 +139,7 @@ const MainPage = () => {
                                             <Listbox.Option
                                                 key={floor_departmentIndex}
                                                 className={({ active }) =>
-                                                    `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                                                    `relative cursor-pointer select-none py-2 pl-10 pr-4 ${
                                                         active
                                                             ? "bg-secondaryFlash text-white"
                                                             : "text-white"
