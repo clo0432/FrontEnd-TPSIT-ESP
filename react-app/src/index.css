@@ -27,7 +27,7 @@
     }
 
     .topbar {
-        @apply fixed flex inset-x-0 top-0 h-16 z-50
+        @apply fixed flex inset-x-0 top-0 h-16 z-40
         transition-all ease-in-out duration-200;
     }
 
@@ -90,7 +90,7 @@
 
     /* Definizione stile della sidebar */
     .sidebar {
-        @apply fixed z-50 top-16 bottom-0 left-[100vw] 
+        @apply fixed z-40 top-16 bottom-0 left-[100vw] 
         lg:right-0 p-1 overflow-y-auto
         text-center;
         width: 225px;

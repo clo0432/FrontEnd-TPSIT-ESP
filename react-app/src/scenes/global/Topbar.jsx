@@ -30,32 +30,38 @@ const SidebarToggleButton = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
 const SearchbarToggleButton = ({ isSearchbarOpen, setIsSearchbarOpen }) => {
     const handleSearchClick = () => {
-        console.log("Click!");
         setIsSearchbarOpen(!isSearchbarOpen);
     };
 
+    const handleOutsideClick = (e) => {
+        if (e.target === e.currentTarget) {
+            console.log("Click!");
+            setIsSearchbarOpen(false);
+        }
+    };
+
     const luoghi = [
-        "",
-        "Alberghetti (Via S. Benedetto) - Piano terra",
-        "Alberghetti (Via S. Benedetto) - Piano primo",
-        "Alberghetti (Via S. Benedetto) - Piano secondo",
-        "Alberghetti (Via S. Benedetto) - Palestra",
-        "Alberghetti (Viale Dante Alighieri) - Piano terra",
-        "Alberghetti (Viale Dante Alighieri) - Piano primo",
-        "Alberghetti (Viale Dante Alighieri) - Piano secondo",
-        "Alberghetti (Viale Dante Alighieri) - Palestra",
-        "Scarabelli Ghini - Piano terra",
-        "Scarabelli Ghini - Piano primo",
-        "Scarabelli Ghini - Piano secondo",
-        "Scarabelli Ghini - Palestra",
-        "Valeriani - Piano terra",
-        "Valeriani - Piano primo",
-        "Valeriani - Piano secondo",
-        "Valeriani - Palestra",
-        "Rambaldi - Piano terra",
-        "Rambaldi - Piano primo",
-        "Rambaldi - Piano secondo",
-        "Rambaldi - Palestra",
+        { id: 1, name: "", unavailable: true },
+        { id: 2, name: "Alberghetti (Via S. Benedetto) - Piano terra" },
+        { id: 3, name: "Alberghetti (Via S. Benedetto) - Piano primo" },
+        { id: 4, name: "Alberghetti (Via S. Benedetto) - Piano secondo" },
+        { id: 5, name: "Alberghetti (Via S. Benedetto) - Palestra" },
+        { id: 6, name: "Alberghetti (Viale Dante Alighieri) - Piano terra" },
+        { id: 7, name: "Alberghetti (Viale Dante Alighieri) - Piano primo" },
+        { id: 8, name: "Alberghetti (Viale Dante Alighieri) - Piano secondo" },
+        { id: 9, name: "Alberghetti (Viale Dante Alighieri) - Palestra" },
+        { id: 10, name: "Scarabelli Ghini - Piano terra" },
+        { id: 11, name: "Scarabelli Ghini - Piano primo" },
+        { id: 12, name: "Scarabelli Ghini - Piano secondo" },
+        { id: 13, name: "Scarabelli Ghini - Palestra" },
+        { id: 14, name: "Valeriani - Piano terra" },
+        { id: 15, name: "Valeriani - Piano primo" },
+        { id: 16, name: "Valeriani - Piano secondo" },
+        { id: 17, name: "Valeriani - Palestra" },
+        { id: 18, name: "Rambaldi - Piano terra" },
+        { id: 19, name: "Rambaldi - Piano primo" },
+        { id: 20, name: "Rambaldi - Piano secondo" },
+        { id: 21, name: "Rambaldi - Palestra" },
     ];
 
     const [luogoSelezionato, setLuogoSelezionato] = useState(luoghi[0]);
@@ -65,7 +71,7 @@ const SearchbarToggleButton = ({ isSearchbarOpen, setIsSearchbarOpen }) => {
         query === ""
             ? luoghi
             : luoghi.filter((luogo) => {
-                  return luogo.toLowerCase().includes(query.toLowerCase());
+                  return luogo.name.toLowerCase().includes(query.toLowerCase());
               });
 
     return (
@@ -78,16 +84,16 @@ const SearchbarToggleButton = ({ isSearchbarOpen, setIsSearchbarOpen }) => {
             </button>
             <Transition
                 show={isSearchbarOpen}
-                className="absolute inset-0 w-[100vw] h-[100vh]"
-                enter="transition duration-500"
+                onClick={handleOutsideClick}
+                className="absolute inset-0 w-[100vw] h-[100vh] z-50"
+                enter="transition duration-100"
                 enterFrom="backdrop-blur-none backdrop-brightness-100"
                 enterTo="backdrop-blur-sm backdrop-brightness-50"
-                leave="transition duration-500"
+                leave="transition duration-100"
                 leaveFrom="backdrop-blur-sm backdrop-brightness-50"
                 leaveTo="backdrop-blur-none backdrop-brightness-100"
             >
                 <Transition
-                    show={isSearchbarOpen}
                     enter="transition ease-out duration-300 transform"
                     enterFrom="scale-75"
                     enterTo="scale-100"
@@ -105,14 +111,16 @@ const SearchbarToggleButton = ({ isSearchbarOpen, setIsSearchbarOpen }) => {
                                     onChange={(event) =>
                                         setQuery(event.target.value)
                                     }
+                                    displayValue={(luogo) => luogo.name}
                                     className="w-full bg-white rounded p-2"
                                 />
                                 <div className="text-white">
                                     <Combobox.Options>
                                         {luoghiFiltrati.map((luogo) => (
                                             <Combobox.Option
-                                                key={luogo}
+                                                key={luogo.id}
                                                 value={luogo}
+                                                disabled={luogo.unavailable}
                                             >
                                                 {({ active }) => (
                                                     <div
@@ -122,7 +130,7 @@ const SearchbarToggleButton = ({ isSearchbarOpen, setIsSearchbarOpen }) => {
                                                                 : ""
                                                         }`}
                                                     >
-                                                        {luogo}
+                                                        {luogo.name}
                                                     </div>
                                                 )}
                                             </Combobox.Option>
