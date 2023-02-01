@@ -8,7 +8,6 @@ import {
 } from "react-icons/fc";
 
 export const Sidebar = ({ isSidebarOpen }) => {
-    console.log(isSidebarOpen);
     return (
         // Definisco il rettangolo che fa da sfondo per la sidebar e che ne cotiene i suoi elementi
         <div
@@ -20,7 +19,7 @@ export const Sidebar = ({ isSidebarOpen }) => {
             <nav className="sidebarNav">
                 {" "}
                 {/* Sample degli elementi della topbar */}
-                <a href="#" className="sidebarButtons">
+                <a href="#" className="sidebarButtons border-t-accent">
                     <FcHome size={25} />
                     <span>home</span>
                 </a>
@@ -36,7 +35,7 @@ export const Sidebar = ({ isSidebarOpen }) => {
                     <FcSurvey size={25} />
                     <span>reports</span>
                 </a>
-                <a href="#" className="sidebarButtons">
+                <a href="#" className="sidebarButtons border-b-accent">
                     <FcSettings size={25} />
                     <span>settings</span>
                 </a>

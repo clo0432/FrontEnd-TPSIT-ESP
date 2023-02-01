@@ -27,10 +27,14 @@ const SidebarToggleButton = ({ isSidebarOpen, setIsOpen }) => {
 };
 
 export const Topbar = ({ isSidebarOpen, setIsOpen }) => {
-    const [isSticky, setIsSticky] = useState(false);
     useEffect(() => {
         const handleScroll = () => {
-            setIsSticky(window.scrollY > 0);
+            var element = document.getElementById("topbar");
+            if (window.scrollY > 0) {
+                element.classList.add("background-topbar");
+            } else {
+                element.classList.remove("background-topbar");
+            }
         };
         window.addEventListener("scroll", handleScroll);
         return () => {
@@ -39,13 +43,12 @@ export const Topbar = ({ isSidebarOpen, setIsOpen }) => {
     }, []);
 
     return (
-        <nav className={`${isSticky ? "sticky" : "fixed"}  topbar`}>
-            <div className="flex flex-wrap items-center flex-shrink-0">
-                {" "}
-                {/* Logo e titolo affianco */}
-                <Logo /> {/* Logo del sito in svg */}
-                <h1 className="website-title"> Demo Name </h1>
-            </div>
+        <nav id="topbar" className="topbar">
+            {/* Logo e titolo affianco */}
+            <a href="/" className="flex flex-wrap items-center flex-shrink-0">
+                <Logo />
+                <h1 className="website-title"> Air quality </h1>
+            </a>
             <SidebarToggleButton
                 isSidebarOpen={isSidebarOpen}
                 setIsOpen={setIsOpen}
