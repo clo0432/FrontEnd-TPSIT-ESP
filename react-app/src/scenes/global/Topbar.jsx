@@ -176,17 +176,15 @@ export const Topbar = ({
                 <h1 className="website-title"> Air quality </h1>
             </a>
             <div className="space-x-0">
-              <SearchbarToggleButton
+                <SearchbarToggleButton
                     isSearchbarOpen={isSearchbarOpen}
                     setIsSearchbarOpen={setIsSearchbarOpen}
-              />
-              <SidebarToggleButton
+                />
+                <SidebarToggleButton
                     isSidebarOpen={isSidebarOpen}
                     setIsSidebarOpen={setIsSidebarOpen}
-              />
+                />
             </div>
-            />
         </nav>
-      
     );
 };
