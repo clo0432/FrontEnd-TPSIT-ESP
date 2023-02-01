@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Layout from "./scenes/global/Layout";
+import MyResponsiveLine from "./scenes/graphPage/graph";
 import MainPage from "./scenes/mainPage";
 
 const App = () => {
@@ -10,7 +11,9 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<MainPage />} />
-                    {/* <Route path="team" element={<Team />} /> */}
+                    <Route path="graph" element={<MyResponsiveLine />} />
+                    {/* Da implementare in futuro */}
+                    {/* <Route path="team" element={<Team />} />  */}
                     {/* <Route path="projects" element={<Projects />} /> */}
                     {/* <Route path="reports" element={<Reports />} /> */}
                 </Route>

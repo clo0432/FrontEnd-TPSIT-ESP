@@ -1,0 +1,93 @@
+{
+    "fontSize": 50,
+    "axis": {
+        "fill": "#FFFFFF",
+        "domain": {
+            "line": {
+                "stroke": "#777777",
+                "strokeWidth": 1
+            }
+        },
+        "legend": {
+            "text": {
+                "fontSize": 15,
+                "fill": "#FFFFFF"
+            }
+        },
+        "ticks": {
+            "line": {
+                "stroke": "#FFFFFF",
+                "strokeWidth": 1
+            },
+            "text": {
+                "fontSize": 12,
+                "fill": "#FFFFFF"
+            }
+        }
+    },
+    "grid": {
+        "line": {
+            "stroke": "#dddddd",
+            "strokeWidth": 1
+        }
+    },
+    "legends": {
+        "title": {
+            "text": {
+                "fontSize": 12,
+                "fill": "#FFFFFF"
+            }
+        },
+        "text": {
+            "fontSize": 12,
+            "fill": "#FFFFFF"
+        },
+        "ticks": {
+            "line": {},
+            "text": {
+                "fontSize": 10,
+                "fill": "#FFFFFF"
+            }
+        }
+    },
+    "annotations": {
+        "text": {
+            "fontSize": 13,
+            "fill": "#FFFFFF",
+            "outlineWidth": 2,
+            "outlineColor": "#000000",
+            "outlineOpacity": 1
+        },
+        "link": {
+            "stroke": "#000000",
+            "strokeWidth": 1,
+            "outlineWidth": 2,
+            "outlineColor": "#ffffff",
+            "outlineOpacity": 1
+        },
+        "outline": {
+            "stroke": "#000000",
+            "strokeWidth": 2,
+            "outlineWidth": 2,
+            "outlineColor": "#ffffff",
+            "outlineOpacity": 1
+        },
+        "symbol": {
+            "fill": "#000000",
+            "outlineWidth": 2,
+            "outlineColor": "#ffffff",
+            "outlineOpacity": 1
+        }
+    },
+    "tooltip": {
+        "container": {
+            "background": "#ffffff",
+            "fontSize": 12
+        },
+        "basic": {},
+        "chip": {},
+        "table": {},
+        "tableCell": {},
+        "tableCellValue": {}
+    }
+}

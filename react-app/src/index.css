@@ -4,20 +4,25 @@
 @tailwind utilities;
 
 @layer components {
+    #root {
+        @apply w-full h-full;
+    }
+
     body {
         @apply bg-gray-900;
     }
+
     .website-title {
         @apply items-center text-xl font-bold text-white tracking-tight;
     }
 
     .page-title-text {
-        @apply flex items-center h-40 py-[200px] justify-center text-4xl font-extrabold text-transparent
+        @apply flex items-center h-40 py-[100px] justify-center text-5xl font-extrabold text-transparent
         bg-gradient-to-r bg-clip-text from-indigo-500 via-purple-500 to-pink-500;
     }
 
     .background-main-page {
-        @apply h-full w-full bg-gradient-to-b from-[#2a0d40] to-black;
+        @apply h-[101vh] w-full bg-gradient-to-b from-[#2a0d40] to-black;
     }
 
     /* Logo */
@@ -27,18 +32,18 @@
     }
 
     .topbar {
-        @apply fixed flex inset-x-0 top-0 h-16 z-40
+        @apply sticky flex left-0 right-0 top-0  h-16 z-40
         transition-all ease-in-out duration-200;
     }
 
-    .topbar.sticky {
-        @apply bg-opacity-40 bg-black backdrop-blur-sm;
+    .background-topbar {
+        @apply bg-opacity-70 bg-black backdrop-blur-sm z-40;
     }
 
     /* Navbar */
     .sidebarNav {
         @apply flex flex-wrap items-center justify-start
-        space-y-2 mt-3 mx-3;
+        space-y-2 mt-2 mx-3;
     }
 
     .searchbarToggleButton {
@@ -52,12 +57,14 @@
 
     /* Animazione di hover lo sfondo del bottone ed il suo colore */
     .sidebarToggleButton {
-        @apply absolute flex items-center justify-center
-        top-0 right-0 h-10 w-12 mt-3 mx-3 
-        hover:bg-[#8875FF] dark:bg-[#3F2F94] fill-[#8875FF] hover:fill-white
+        @apply absolute flex items-center justify-center border-2 border-transparent
+        top-0 right-0 h-10 w-12 mt-3 mx-3
+        fill-[#8875FF] hover:fill-[#b5aaff]
         hover:rounded-xl rounded-3xl
+        shadow-lg hover:border-secondaryFlash/30
+        hover:shadow-secondaryFlash/30
         transition-all duration-200 ease-linear
-        cursor-pointer shadow-lg;
+        cursor-pointer;
     }
 
     /* Animazione dell bottone menu hamburger che diventa una X e viceversa a seconda dello stato della sidebar */
@@ -125,11 +132,28 @@
     }
 
     .sidebarButtons {
-        @apply flex items-center justify-between w-full font-bold px-4 py-3 
-        text-[#aba0f5] bg-[#3F2F94] fill-[#8875FF]
-        hover:bg-[#8875FF] hover:text-white
+        @apply flex items-center justify-between w-full font-bold
+        space-y-3 px-4 py-3 border-x-2 border-y-2 border-transparent
+        border-x-accent hover:border-accent
+        text-accent hover:text-[#FEC29A]
+        hover:border-2
         hover:rounded-xl rounded-3xl
         transition-all duration-200 ease-linear
-        cursor-pointer shadow-lg;
+        cursor-pointer shadow-lg hover:shadow-accent/30;
+    }
+
+    .goButton {
+        @apply flex items-center justify-between w-fit 
+        h-[36px] font-bold
+        px-4 py-2 border-2 border-transparent
+        border-accent
+        text-accent hover:text-[#FEC29A]
+        hover:rounded-xl rounded-3xl
+        transition-all duration-200 ease-linear
+        cursor-pointer shadow-lg hover:shadow-accent/30;
+    }
+
+    .selectDisabled {
+        @apply hidden;
     }
 }
