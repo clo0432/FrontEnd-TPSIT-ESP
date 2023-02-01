@@ -1,7 +1,6 @@
 import { Combobox, Transition } from "@headlessui/react";
 import React, { useEffect, useState } from "react";
-import { FcSearch } from "react-icons/fc";
-import { Hamburger, Logo } from "./assets/icons";
+import { Hamburger, Logo, SearchIcon } from "./assets/icons";
 
 const SidebarToggleButton = ({ isSidebarOpen, setIsSidebarOpen }) => {
     return (
@@ -80,26 +79,27 @@ const SearchbarToggleButton = ({ isSearchbarOpen, setIsSearchbarOpen }) => {
                 className="searchbarToggleButton"
                 onClick={handleSearchClick}
             >
-                <FcSearch size={20} />
+                <SearchIcon />
             </button>
             <Transition
                 show={isSearchbarOpen}
                 onClick={handleOutsideClick}
                 className="absolute inset-0 w-[100vw] h-[100vh] z-50"
-                enter="transition duration-100"
+                enter="transition duration-200"
                 enterFrom="backdrop-blur-none backdrop-brightness-100"
                 enterTo="backdrop-blur-sm backdrop-brightness-50"
-                leave="transition duration-100"
+                leave="transition duration-300"
                 leaveFrom="backdrop-blur-sm backdrop-brightness-50"
                 leaveTo="backdrop-blur-none backdrop-brightness-100"
             >
                 <Transition
-                    enter="transition ease-out duration-300 transform"
-                    enterFrom="scale-75"
-                    enterTo="scale-100"
+                    show={isSearchbarOpen}
+                    enter="transition ease-out duration-200 transform"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
                     leave="transition ease-in duration-300 transform"
-                    leaveFrom="scale-100"
-                    leaveTo="scale-75"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
                 >
                     <div className="w-2/5 mt-[10vh] ml-auto mr-auto">
                         <Combobox

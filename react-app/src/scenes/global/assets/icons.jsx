@@ -83,3 +83,55 @@ export const Hamburger = () => {
         </svg>
     );
 };
+
+export const SearchIcon = () => {
+    return (
+        <svg
+            id="search"
+            width="22"
+            height="22"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M15.5 14.5L11.5 10.5"
+                strokeWidth="1.5"
+                stroke="#8875FF"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M6.5 12C3.46243 12 1 9.53757 1 6.5C1 3.46243 3.46243 1 6.5 1C9.53757 1 12 3.46243 12 6.5C12 9.53757 9.53757 12 6.5 12Z"
+                stroke="#8875FF"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    );
+};
+
+{
+    /* <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M15.5 14.5L11.5 10.5"
+                stroke="#222"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M6.5 12C3.46243 12 1 9.53757 1 6.5C1 3.46243 3.46243 1 6.5 1C9.53757 1 12 3.46243 12 6.5C12 9.53757 9.53757 12 6.5 12Z"
+                stroke="#222"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg> */
+}
