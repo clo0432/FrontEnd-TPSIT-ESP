@@ -22,7 +22,7 @@
     }
 
     .background-main-page {
-        @apply h-[101vh] w-full bg-gradient-to-b from-[#2a0d40] to-black;
+        @apply min-h-[101vh] h-full w-full bg-gradient-to-b from-[#2a0d40] to-black;
     }
 
     /* Logo */
